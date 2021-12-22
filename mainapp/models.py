@@ -6,6 +6,8 @@ class Country(models.Model):
     name = models.CharField(verbose_name='название', max_length=64, unique=True)
     desc = models.TextField(verbose_name='описание', blank=True)
     is_active = models.BooleanField(verbose_name='активна', default=True)
+    created_at = models.DateTimeField(verbose_name='создана', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='обновлена', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -16,6 +18,8 @@ class Region(models.Model):
     name = models.CharField(verbose_name='название', max_length=64, unique=True)
     desc = models.TextField(verbose_name='описание', blank=True)
     is_active = models.BooleanField(verbose_name='активна', default=True)
+    created_at = models.DateTimeField(verbose_name='создана', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='обновлена', auto_now=True)
 
     def __str__(self):
         return f'{self.name} | {self.country.name}'
@@ -32,6 +36,8 @@ class Accommodation(models.Model):
     price = models.DecimalField(verbose_name='стоимость', max_digits=8, decimal_places=2)
     room_desc = models.TextField(verbose_name='описание комнаты', blank=True)
     is_active = models.BooleanField(verbose_name='активна', default=True)
+    created_at = models.DateTimeField(verbose_name='создана', auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='обновлена', auto_now=True)
 
     def __str__(self):
         return f'{self.name} | {self.country.name}'
